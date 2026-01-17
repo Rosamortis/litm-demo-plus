@@ -69,6 +69,12 @@ export class ThemeData extends foundry.abstract.TypeDataModel {
 			note: new fields.HTMLField({
 				initial: t("Litm.ui.name-note"),
 			}),
+			weaknessRating: new fields.NumberField({
+				integer: true,
+				min: 0,
+				initial: 0,
+				max: 3,
+			})
 		};
 	}
 

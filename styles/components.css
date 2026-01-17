@@ -76,6 +76,15 @@
 	}
 }
 
+/* Weakness rating layout */
+.litm--weakness-rating {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 5px;
+	margin-top: 0.25em;
+}
+
 :where(.litm--burn),
 .app.litm.litm :where(.litm--burn) {
 	-webkit-appearance: none;

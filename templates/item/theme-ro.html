@@ -35,14 +35,21 @@
 				{{/each}}
 			</ul>
 			<!-- Weakness -->
-			{{#each data.system.weakness as |tag|}}
+			{{#with (lookup data.system.weakness 0) as |tag|}}
 			<button type="button" class="litm--weakness" data-click="select"
 				data-tooltip="{{localize 'Litm.ui.toggle-weakness-roll'}}" data-id="{{tag.id}}" {{#if (includes @root.rollTags
 				tag.id 'id' )}}data-selected{{/if}}>
 				<!-- Weakness Name -->
 				<span class="litm--weakness-part">{{tag.name}}</span>
 			</button>
-			{{/each}}
+			{{/with}}
+			<!-- Weakness rating -->
+			<div class="litm--weakness-rating" data-click="increase" data-context="decrease" data-id="system.weaknessRating"
+				data-tooltip="{{localize 'Litm.ui.inc-dec'}}">
+				{{#progress-buttons data.system.weaknessRating 3}}
+				<span class="litm--checkbox litm--checkbox-with-bg {{#if @checked}}checked{{/if}}"></span>
+				{{/progress-buttons}}
+			</div>
 			<div class="litm--theme-progression">
 				<!-- Experience buttons -->
 				<div data-click="increase" data-context="decrease" data-id="system.experience"
